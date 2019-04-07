@@ -7,7 +7,7 @@ import './App.css';
 
 import Products from './components/Products'
 import ShoppingCartBadge from './components/ShoppingCartBadge'
-import store from './store';
+import {store} from './store';
 import ShoppingCartPage from './pages/ShoppingCartPage';
 
 const {Header , Content , Footer} = Layout;

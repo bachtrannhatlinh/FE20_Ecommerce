@@ -5,3 +5,8 @@ export const addToCart = (product , quantity) =>({
     product : product,
     quantity : quantity,
 });
+
+export const deleteProduct = (id) => ({
+    type: ActionTypes.DELETE_PRODUCT,
+    id: id
+})

@@ -7,7 +7,6 @@ const defaultState ={
     //xđ ban đầu đồi với 1 giỏ hàng , nó gồm những cái gì ???
 };
 
-
 var updateTotal = (items) =>{
     return items.reduce((total,item) =>(total+((item.product.price * item.quantity)*(100-item.product.discount)/100)),0);
 }
@@ -26,16 +25,21 @@ const shoppingCartReducer = (state = defaultState , action) =>{
             total : total//update lại total
           }
        }
-    //ELSE ADD NEW ITEM WITH QUANTITY = 1
+      //ELSE ADD NEW ITEM WITH QUANTITY = 1
       var addedProducts = [...state.addedProducts , {product : action.product , quantity : action.quantity}];//trong trường hợp không tìm thấy thì mình tăng số lượng sản phẩm
       var total1 = updateTotal(addedProducts);
+      localStorage.setItem('product', JSON.stringify(addedProducts))
       return {//trả về các giá trị
         ...state,
         addedProducts : addedProducts,
-        total : total1 
+        total : total1
       };
-
-      default : 
+    case ActionTypes.DELETE_PRODUCT:
+      return {
+        ...state,
+        addedProducts: [...state.addedProducts].filter(item => item.product.id !== action.id)
+      }
+    default : 
       return state;
   }
 };

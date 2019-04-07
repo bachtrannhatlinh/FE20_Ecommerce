@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import imgTmp from 'prr/src/img/image1.png';
 import { Card , Icon } from 'antd';
 import {connect} from 'react-redux';
 import { addToCart } from '../modules/shoppingCart/actions'
@@ -13,9 +12,8 @@ class Product extends Component {
           style={{ width: 300 }}
           cover={<img alt="" src={this.props.product.img} />
         }
-        actions={[
+        actions={[//là mảng gồm các component
          <div style={{fontSize : 25}}>
-          {/* <Icon type="heart"></Icon> */}
           <Icon type="shopping-cart" onClick={()=>{
             this.props.addToCart(this.props.product , 1);
           }} /></div>

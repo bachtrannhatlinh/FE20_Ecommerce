@@ -7,7 +7,7 @@ export default class Products extends Component {
   render() {
     return (
       <Row gutter={16}>
-        {this.props.products && this.props.products.map((item,index) =>(
+        {this.props.products && this.props.products.map((item) =>(
           <Col key={item.id} span={8}>
             <Product product={item}></Product>
           </Col>
