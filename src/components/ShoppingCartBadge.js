@@ -16,13 +16,10 @@ class ShoppingCartBadge extends Component {
 }
 
 const mapStateToProps = (state) =>({
-    addedProducts : state.shoppingCartReducer.addedProducts,//danh sách các sản phẩm trong giỏ hàng
-    // total : state.shoppingCartReducer.total,//tổng số tiền
+    addedProducts : state.shoppingCartReducer.addedProducts,
   });
   
-  //Nối các functions vào props (functions) của View Component
-  const mapDispatchToProps = (dispatch) =>({
-    // addToCart : (product , quantity) => dispatch(addToCart(product,quantity)),//khi truyền vào là dispatch và addtocart
+const mapDispatchToProps = (dispatch) =>({
   });
   
-  export default connect(mapStateToProps , mapDispatchToProps)(ShoppingCartBadge);
+export default connect(mapStateToProps , mapDispatchToProps)(ShoppingCartBadge);

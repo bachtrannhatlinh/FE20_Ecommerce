@@ -12,7 +12,7 @@ class Product extends Component {
           style={{ width: 300 }}
           cover={<img alt="" src={this.props.product.img} />
         }
-        actions={[//là mảng gồm các component
+        actions={[
          <div style={{fontSize : 25}}>
           <Icon type="shopping-cart" onClick={()=>{
             this.props.addToCart(this.props.product , 1);
@@ -32,13 +32,11 @@ class Product extends Component {
 }
 
 const mapStateToProps = (state) =>({
-  // addedProducts : state.shoppingCartReducer.addedProducts,//danh sách các sản phẩm trong giỏ hàng
-  // total : state.shoppingCartReducer.total,//tổng số tiền
+
 });
 
-//Nối các functions vào props (functions) của View Component
 const mapDispatchToProps = (dispatch) =>({
-  addToCart : (product , quantity) => dispatch(addToCart(product,quantity)),//khi truyền vào là dispatch và addtocart
+  addToCart : (product , quantity) => dispatch(addToCart(product,quantity)),
 });
 
 export default connect(mapStateToProps , mapDispatchToProps)(Product);
